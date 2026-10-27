@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Devi &amp; Agus — Undangan Pernikahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+    :root{
+  --pink-deep:#206326;
+  --pink:rgb(97, 161, 107);
+  --pink-soft:rgb(133, 216, 140);
+  --pink-trans:rgba(56, 117, 66, 0.692);
+  --gold:#8bdd7b;
+  --gold-light:#c5ecbd;
+  --gold-deep:#488346;
+  --broken-white:#ddf1dd;
+  --ivory:#ebfaea;
+  --blush:#dbf2d6;
+  --ink:#233023;
+  --font-script:'Great Vibes', cursive;
+  --font-display:'Playfair Display', serif;
+  --font-body:'Jost', sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+@keyframes draw{
+    to {
+        stroke-dashoffset:0;
+    }
+}
+@keyframes fall{
+    to { 
+        transform:translateY(115vh) rotate(360deg);
+        opacity:0; 
+    }
+}
+@keyframes spin {
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+@keyframes lovePulse {
+  0%, 100% { 
+    transform: scale(1); 
+}
+  50% { 
+    transform: scale(1.15); 
+}
+}
+@keyframes photos {
+    0%{
+        background-image: url(aset/galeri/1.png);
+    }
+    20%{
+        background-image: url(aset/galeri/2.png);
+    } 
+    40%{
+        background-image: url(aset/galeri/3.png);
+    } 
+    60%{
+        background-image: url(aset/galeri/4.png);
+    } 
+    80%{
+        background-image: url(aset/galeri/5.png);
+    } 
+    100%{
+        background-image: url(aset/galeri/7.png);
+    }
+}
+* {
+    box-sizing:border-box;
+    object-position: center;
+    background-position: center center;
+}
+html { 
+    scroll-behavior:smooth;
+}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--ivory);
+  overflow-x:hidden;
+  font-weight:300;
+  letter-spacing:.02em;
+}
+::selection{ 
+    background:var(--pink); 
+    color:var(--broken-white);
+}
+::-webkit-scrollbar {
+    width:9px;
+}
+::-webkit-scrollbar-track{
+    background:var(--ivory);
+}
+::-webkit-scrollbar-thumb{
+    background:var(--pink);
+    border-radius:10px;
+}
+
+h1,h2,h3,h4 {
+    font-family:var(--font-display); 
+    margin:0; 
+}
+
+.script { 
+    font-family:var(--font-script);
+    line-height:1;
+    font-size:3.5em;
+}
+.text-gold {
+    color:var(--pink);
+}
+.bg-emerald {
+    background:var(--broken-white);
+}
+
+a {
+    text-decoration:none;
+}
+
+#cover{
+  inset:0; 
+  z-index:2000;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(aset/cover-lns.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color:var(--ivory);
+  transition:opacity .9s ease, visibility .9s ease;
+}
+
+#cover.hide{
+    opacity:0; 
+    visibility:hidden; 
+    pointer-events:none;
+}
+.cover-frame{
+  max-width:480px;
+  width:88%;
+}
+
+.cover-sub{
+    font-size:.78rem; 
+    letter-spacing:.35em; 
+    text-transform:uppercase; 
+    color:var(--pink-soft);
+}
+
+.eyebrow{
+  font-family:var(--font-body);
+  letter-spacing:0.4em;
+  font-size:1rem;
+  color:var(--pink-deep);
+}
+.eyebrow.on-dark {
+    color:var(--gold);
+}
+
+.cover-names{
+    font-family:var(--font-script);
+    font-size:clamp(4rem,10vw,5em); 
+    color:var(--broken-white); 
+    margin-bottom:55%;
+}
+.cover-amp{
+    font-family:var(--font-display); 
+    font-style:italic; 
+    color:var(--gold-light);
+}
+.card-to {
+    background-color: rgba(235, 226, 217, 0.2);
+    border:solid var(--gold-light) 1px;
+    backdrop-filter: blur(5px);
+    font-family: var(--font-body);
+}
+.cover-to{
+    letter-spacing:.08em; 
+    color:#000; 
+    font-weight: 400;
+}
+.cover-to b{
+    color: var(--ink);
+    font-weight: 800;
+    border-bottom:1px solid var(--pink); 
+}
+
+.btn-open{
+  border:1px solid var(--pink-deep);
+  color:var(--ink);
+  font-family:var(--font-body);
+  letter-spacing:.2em;
+  font-size:.72rem;
+  transition:0.4s;
+}
+.btn-open:hover{
+    background:linear-gradient(135deg, var(--pink-deep), var(--pink), var(--pink-deep)); 
+    color:var(--broken-white);
+}
+.btn-open svg{
+    width:14px; 
+    height:14px;
+}
+
+.float-petal{
+  position:absolute; 
+  top:-10%;
+  font-size:1.1rem; 
+  color:var(--gold);
+  opacity:.6;
+  animation:fall linear infinite;
+}
+#music-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 3000;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--pink);
+  background: var(--pink-deep);
+  backdrop-filter: blur(6px);
+  color: var(--pink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--ease);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  padding: 0;
+}
+
+#music-toggle:hover {
+  background: var(--pink);
+  color: var(--broken-white);
+  transform: scale(1.05);
+}
+
+#music-toggle.spin {
+  animation: spin 2s linear infinite;
+}
+
+#music-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+#hero{
+  position:relative;
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+  color:var(--ivory);
+  background:radial-gradient(ellipse at 50% 0%, rgba(146, 209, 143, 0.144), transparent 55%),linear-gradient(160deg, var(--broken-white) 0%, #fff 55%, var(--broken-white) 100%);
+  overflow:hidden;
+  padding:5rem 1rem;
+}
+#hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23c9a464' stroke-width='.6' opacity='.14'%3E%3Ccircle cx='200' cy='200' r='170'/%3E%3Ccircle cx='200' cy='200' r='140'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:900px; background-position:center;
+  pointer-events:none;
+}
+.hero-eyebrow{
+    letter-spacing:.5em;
+}
+.hero-title{
+    font-family:var(--font-script); 
+    font-size:clamp(3.4rem,11vw,6rem); 
+    color:var(--pink-deep); margin:.6rem 0 .2rem;
+}
+.hero-date-badge{
+  display:inline-block; margin-top:1.4rem;
+  border-top:1px solid var(--gold); border-bottom:1px solid var(--gold);
+  padding:.5rem 1.6rem;
+  font-family:var(--font-display); font-style:italic; letter-spacing:.06em;
+  font-size:1.05rem; color:var(--pink-deep);
+}
+
+.cd-box{
+  min-width:64px;
+  border:1px solid var(--pink-soft);
+  background-color: var(--ivory);
+}
+.cd-num{
+    font-family:var(--font-display); 
+    color:var(--pink-deep);
+}
+.cd-lbl{
+    font-size: .67rem;
+    color:var(--gold-deep);
+}
+
+.divider-flourish{
+  height:26px;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 26'%3E%3Cg fill='none' stroke='%23c9a464' stroke-width='1.4'%3E%3Cpath d='M0 13 H80'/%3E%3Cpath d='M140 13 H220'/%3E%3Ccircle cx='110' cy='13' r='4.5'/%3E%3Cpath d='M92 13c6-9 16-9 18 0c2-9 12-9 18 0'/%3E%3C/g%3E%3C/svg%3E");
+  opacity:0.9;
+}
+
+.corner-vine{
+  position:absolute;
+  width:250px; 
+  height:250px;
+  background-repeat:no-repeat;
+  background-size:contain;
+  opacity:0.85;
+  pointer-events:none;
+ }
+.corner-tl{
+    top:0px; 
+    left:0px;
+}
+.corner-tr{
+    top:0px; 
+    right:0px; 
+    transform:scaleX(-1);
+}
+.corner-bl{
+    bottom:0px; 
+    left:0px; 
+    transform:scaleY(-1);
+}
+.corner-br{
+    bottom:0px; 
+    right:0px; 
+    transform:scale(-1,-1);
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .9s var(--ease), transform .9s var(--ease);
+}
+.reveal.in{
+    opacity:1; 
+    transform:translateY(0);
+}
+
+.section-pad{
+  background-image: url(aset/bg-flowers.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.section-pad .container {
+  padding: 3rem 2rem;
+  width: 80%;
+  max-width: 800px;
+}
+#couple {
+    padding: 5rem 0; 
+    background: linear-gradient(180deg, var(--ivory) 0%, var(--blush) 100%); 
+    position: relative; 
+    overflow: hidden;
+}
+
+.love-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.lead {
+    font-family: var(--font-display); 
+    font-size: 1.1rem; 
+    color: var(--ink); 
+    line-height: 1.8;
+}
+
+.couple-photo {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.couple-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px var(--pink);
+}
+
+.photo-ring {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid var(--pink);
+  padding: 6px;
+  background: white;
+  margin: 0 auto;
+}
+.photo-ring:hover {
+    box-shadow: 5px 5px 30px 10px var(--pink-soft);
+    transform: scale(1.03);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+}
+.ring-line {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--pink-soft);
+  animation: spin 20s linear infinite;
+  pointer-events: none;
+}
+
+.jadwal {
+  width: 93%;
+  max-width: 1300px;
+  min-height: 600px;
+  background: url('aset/bg-flowers.jpg') center/cover no-repeat;
+}
+.tutup, .tutup2 {
+  background-color: var(--pink-trans);
+  z-index: 0;
+}
+.tutup {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.left, .right {
+  z-index: 1;
+  flex: 1;
+  flex-direction: column;
+  min-height: 500px;
+}
+.cincin, .cincin2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--pink);
+  object-fit: cover;
+}
+.akad, .akad2 {
+  font-family: var(--font-script);
+  margin-bottom: 10px;
+}
+.garis {
+  width: 80px;
+  border: 1px solid var(--pink-deep);
+  opacity: 0.6;
+  margin: 10px auto;
+}
+.jum, .jum2 {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 5px 0;
+}
+.tempat, .tempat2, .alamat, .alamat2 {
+  font-family: var(--font-body);
+  max-width: 80%;
+}
+.peta > a, .peta2 > a {
+  color: var(--ink);
+  transition: all 0.3s ease;
+}
+.peta > a:hover, .peta2 > a:hover {
+  background: var(--pink) !important;
+  color:#fff;
+  transform: scale(1.05);
+}
+.peta > a:active, .peta2 > a:active {
+  background: aquamarine;
+  opacity: 0.6;
+}
+.gallery .container {
+    height:800px;
+    background-image: url(aset/cover-ptr.png);
+    background-size: cover;
+    animation: photos 30s infinite linear;
+    box-shadow: 0 0 10px 5px white;
+}
+.gallery-confirm {
+    background:radial-gradient(ellipse at top, rgba(164, 214, 135, 0.12), transparent 60%), linear-gradient(180deg, var(--broken-white), #f5f5f5 85%);
+}
+.gallery {
+    width:40%;
+}
+.confirm {
+    width: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(117, 201, 100, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+.confirm-title {
+    color: var(--pink-deep);
+    font-family: var(--font-body);
+    letter-spacing: 0.6rem;
+}
+.confirm-subtitle {
+    color: var(--gold-deep);
+    line-height: 1.7;
+}
+.form-group {
+    margin-bottom: 18px;
+}
+.form-group label {
+    color: var(--pink-deep);
+}
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    border: 1px solid #aed7a1;
+    border-radius: 10px;
+    background:var(--ivory);
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    box-shadow: 0 0 0 3px rgba(120, 163, 95, 0.12);
+}
+.btn-rsvp {
+    border: none;
+    background: linear-gradient( 135deg, var(--gold-deep), var(--pink-soft) );
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-rsvp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(106, 167, 88, 0.3);
+}
+.hadiah{
+    background:url('aset/bg-flowers.jpg') center/cover no-repeat; 
+    color:var(--ivory); 
+}
+.gift-card{
+    background:rgba(255, 255, 255, 0.06);
+    border:1px solid rgba(103, 201, 100, 0.35);
+    border-radius:10px; 
+}
+.gift-bank{
+    font-family:var(--font-display);  
+    color:var(--pink-soft);
+}
+.gift-num{
+  letter-spacing:.06em; 
+  margin:.4rem 0;
+  font-weight:500;
+}
+.gift-owner{ 
+    color:var(--broken-white);
+}
+.btn-copy{
+  border:1px solid var(--gold); 
+  color:var(--gold-light); 
+  font-size:.68rem; 
+  letter-spacing: 0.12em;
+  padding:.4rem 1.1rem; 
+  margin-top:.7rem; 
+  transition:.3s;
+}
+.btn-copy:hover {
+    background:var(--gold); 
+    color:var(--pink-deep);
+}
+.btn-copy.copied{
+    background:var(--gold-light); 
+    color:var(--pink); 
+    border-color:var(--gold-light);
+}
+
+.closing {
+  background:linear-gradient(180deg, var(--broken-white), var(--pink-soft));
+  color:var(--ivory); 
+}
+.closing-names {
+    font-family:var(--font-script); 
+    font-size:clamp(2.4rem,7vw,3.4rem); 
+    color:var(--pink-deep);
+}
+.footer-credit {
+    font-size:0.72rem; 
+    color:var(--gold); 
+}
+.footer-credit b {
+    color:var(--gold-deep); 
+    font-weight:500;
+}
+
+@media (max-width: 992px) {
+  .couple-photo-wrapper {
+    display: block !important;
+  }
+  
+  .photo-ring {
+    width: 140px !important;
+    height: 140px !important;
+  }
+  .couple-card {
+    padding: 1rem 0.5rem !important;
+  }
+  .text-lg-end, .text-lg-start {
+    text-align: center !important;
+  }
+  hr {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .couple-card a {
+    display: inline-flex !important;
+    justify-content: center !important;
+  }
+  .jadwal {
+    flex-direction: column;
+    border-radius: 50px;
+    margin: auto;
+  }
+  
+  .left, .right {
+    min-height: 400px;
+    padding: auto;
+
+  }
+  
+  .left {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .akad, .akad2 {
+    font-size: 2rem;
+  }
+  
+  .jum, .jum2 {
+    font-size: 1.2rem;
+  }
+
+
+.cincin, .cincin2 {
+    width: 80px;
+    height: 80px;
+  }
+}
+@media (max-width: 768px) {
+    #cover {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(aset/cover-ptr.png);
+    }
+    .cover-frame {
+        padding: 5px !important;
+        margin-top:50%;
+    }
+    .cover-names {
+        margin-bottom: 0%;
+    }
+    .cover-to {
+        font-size:10px !important;
+        margin-top: 0px !important;
+    }
+    .btn-open {
+        font-size:10px !important;
+        padding:5px !important;
+        background:linear-gradient(135deg, var(--pink-deep), var(--pink), var(--pink-deep)); 
+        color:#fff;
+
+    }
+    .corner-vine{
+        width:150px; 
+        height:150px;
+    }
+    .section-pad {
+        padding: 2rem 0 !important;
+        background-attachment: scroll; 
+        min-height: auto; 
+        aspect-ratio: auto; 
+    }
+
+    .section-pad .container {
+        padding: 1.8rem 1.2rem;
+        margin: 1rem auto;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(4px);
+    }
+
+    .section-pad .container .eyebrow {
+        font-size: 0.6rem;
+        letter-spacing: 0.25em;
+    }
+    .basmalah {
+        width: 75% !important;
+    }
+
+    .lead {
+        font-size: 0.75rem;
+        line-height: 1.6;
+    }
+    .section-pad .container p[style*="Amiri"] {
+        font-size: clamp(1.1rem, 4vw, 1.6rem) !important;
+        line-height: 2 !important;
+    }
+
+    .section-pad .container p[style*="Artinya"] {
+        font-size: 0.85rem !important;
+        line-height: 1.7 !important;
+        padding: 0 0.2rem !important;
+    }
+
+    .divider-flourish {
+        max-width: 150px;
+        margin: 0.8rem auto;
+    }
+    .gallery-confirm {
+        padding:30px !important;
+    }
+    .gallery{
+        width:100%;
+        max-height: 100vh;
+    }
+    .confirm {
+        width: 90%;
+    }
+
+    .confirm-title {
+        font-size: 21px;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 576px) {
+    .photo-ring {
+        width: 120px !important;
+        height: 120px !important;
+    }
+
+    .couple-card {
+      padding: 0.8rem 0.3rem !important;
+    }
+
+    .jadwal {
+        border-radius: 50px;
+        margin: 20px 10px;
+    }
+
+    .left, .right {
+        min-height: 320px;
+        padding: 20px 10px;
+    }
+
+    .akad, .akad2 {
+        font-size: 1.5rem;
+    }
+
+    .jum, .jum2 {
+        font-size: 1rem;
+    }
+    .cincin, .cincin2 {
+        width: 60px;
+        height: 60px;
+    }
+
+    .peta > a, .peta2 > a {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+  .section-pad .container {
+    width: 85%;
+    padding: 1.2rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .lead {
+    font-size: 0.85rem !important;
+  }
+
+  .section-pad .container p[style*="Artinya"] {
+    font-size: 0.78rem !important;
+  }
+}
+@media (min-width:768px){
+    .line{
+        height:500px;
+        width:10px;
+    }
+}
+
+</style>
+</head>
+<body>
+<audio id="bg-music" loop preload="none">
+  <source src="aset/backsound.mp3" type="audio/mpeg">
+</audio>
+<div id="cover" class="position-fixed d-flex justify-content-center align-items-center text-center">
+    <div id="petal-holder"></div>
+    <div class="cover-frame position-relative p-4">
+        <p class="eyebrow on-dark text-uppercase mt-5">The Wedding Of</p>
+        <div class="cover-names">Devi <span class="cover-amp">&amp;</span> Agus</div>
+        <div class="card card-to p-3 rounded-4">
+            <p class="cover-to mt-2">Kepada Bapak/Ibu/Saudara/i<br><b id="guest-name">Tamu Undangan</b></p>
+            <!-- <p class="cover-to">Kami mengundang Anda untuk hadir<br>di hari bahagia kami</p> -->
+            <button class="btn btn-open p-3 mx-auto w-75 text-center rounded-5 text-uppercase fw-bold bg-none align-items-center" id="open-invitation">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+              Buka Undangan
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="main-content" style="visibility:hidden;">
+<section id="hero">
+    <img class="corner-vine corner-tl" src="aset/Flower-l.png" alt="">
+    <img class="corner-vine corner-tr" src="aset/Flower-l.png" alt="">
+    <img class="corner-vine corner-bl" src="aset/Flower-l.png" alt="">
+    <img class="corner-vine corner-br" src="aset/Flower-l.png" alt="">
+    <div class="position-relative">
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">Devi</h1>
+        <h1 class="hero-title" style="color:var(--pink)" data-aos="fade-up" data-aos-delay="300">&amp; </h1>
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">Agus</h1>
+        <div class="divider-flourish w-50 mt-3 mx-auto d-block" data-aos="zoom-in" data-aos-delay="500"></div>
+        <div class="hero-date-badge" data-aos="fade-up" data-aos-delay="600">Ahad, 25 Oktober 2026</div>
+        <div class="mini-countdown d-flex gap-2 justify-content-center mt-4 flex-wrap" data-aos="fade-up" data-aos-delay="700">
+            <div class="cd-box p-3 rounded-3 shadow-sm">
+                <div class="cd-num fs-4" data-cd="days">00</div>
+                <div class="cd-lbl ls-1 text-uppercase">Hari</div>
+            </div>
+            <div class="cd-box p-3 rounded-3 shadow-sm">
+                <div class="cd-num fs-4" data-cd="hours">00</div>
+                <div class="cd-lbl ls-1 text-uppercase">Jam</div>
+            </div>
+            <div class="cd-box p-3 rounded-3 shadow-sm">
+                <div class="cd-num fs-4" data-cd="mins">00</div>
+                <div class="cd-lbl ls-1 text-uppercase">Menit</div>
+            </div>
+            <div class="cd-box p-3 rounded-3 shadow-sm">
+                <div class="cd-num fs-4" data-cd="secs">00</div>
+                <div class="cd-lbl ls-1 text-uppercase">Detik</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="quote" class="section-pad d-flex justify-content-center align-items-center p-5">
+  <div class="container rounded-4 shadow-lg bg-light p-5 shadow" style="backdrop-filter: blur(8px);" data-aos="fade-up">
+    <div class="text-center">
+      <p class="eyebrow mb-3 text-uppercase"  data-aos="fade-up" data-aos-delay="100">Assalamu'alaikum Warahmatullahi Wabarakatuh
+        <img class="basmalah w-50 mt-3" src="aset/basmalah.png" alt="">
+      </p>
+      <div class="divider-flourish w-50 mt-3 mx-auto d-block" data-aos="zoom-in" data-aos-delay="200"></div>
+      <p class="lead" data-aos="fade-up" data-aos-delay="300">
+        Dengan memohon rahmat dan ridha Allah Subhanahu wa Ta'ala, kami bermaksud menyatukan ikatan pernikahan.
+      </p>
+      <div class="divider-flourish w-50 mt-3 mx-auto d-block" data-aos="zoom-in" data-aos-delay="400"></div>
+      <p style="font-family: 'Amiri', 'Traditional Arabic', serif; font-size: clamp(1rem, 3vw, 1.7rem); line-height: 2.2; color: var(--ink); direction: rtl; font-weight: 500;" data-aos="fade-up" data-aos-delay="500">
+        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+      </p>
+      <p style="font-size: 0.95rem; color: var(--ink); line-height: 1.9; max-width: 700px; margin: 0 auto; padding: 0 0.5rem;" data-aos="fade-up" data-aos-delay="600">
+        <span style="font-weight: 500; color: var(--pink-deep);">Artinya:</span> 
+        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir." 
+        <br><strong style="color:var(--pink-deep)">QR. Ar-Rum:21</strong>
+      </p>
+      <div class="divider-flourish w-50 mt-3 mx-auto d-block" data-aos="zoom-in" data-aos-delay="700"></div>
+    </div>
+  </div>
+</section>
+
+<section id="couple" >
+    <img class="corner-vine corner-tl" src="aset/Flower-l.png" alt="">
+    <img class="corner-vine corner-tr" src="aset/Flower-l.png" alt="">
+    <img class="corner-vine corner-bl" src="aset/Flower-l.png" alt="">
+    <img class="corner-vine corner-br" src="aset/Flower-l.png" alt="">
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <p class="eyebrow lh-2 text-uppercase" style="color: var(--pink-deep);">The Bride & Groom</p>
+          <h1 class="script lh-1" style="color: var(--pink-deep);">Mempelai</h1>
+          <div class="divider-flourish w-50 mt-3 mx-auto d-block"></div>
+        </div>
+        <div class="row align-items-center g-5" style="max-width: 1000px; margin: 0 auto;">
+            <div class="col-12 col-lg-5 text-center text-lg-end" data-aos="fade-right" data-aos-delay="200">
+                <div class="couple-card" style="padding: 1.5rem;">
+                    <div class="couple-photo-wrapper text-center position-relative d-inline-block">
+                        <div class="photo-ring">
+                          <img class="couple-photo" src="aset/pria.jpg" alt="Foto Pria" style="  width: 100%;  height: 100%;  border-radius: 50%;  object-fit: cover;">
+                        </div>
+                        <div class="ring-line"></div>
+                    </div>
+                    <h2 class="script mt-4 mb-2" style="font-size: clamp(2rem, 4vw, 2.8rem); color: var(--pink-deep);">Agus</h2>
+                    <hr class="my-2" style="width: 60px;margin-left:80%; border: 1px solid var(--pink); opacity: 0.5;">
+                    <h3 class="fw-bold" style="font-family: var(--font-display); font-size: clamp(1rem, 1.8vw, 1.3rem); color: var(--pink);" >Agus Faiz Aidy</h3>
+                    <p class="lh-base mt-2" style="font-size: clamp(0.75rem, 1.2vw, 0.9rem); color: var(--ink); opacity: 0.8;">Putra Pertama Bapak <strong style="color: var(--pink-deep);">Suhaidi</strong> &amp; <br> Ibu <strong style="color: var(--pink-deep);">Syarifah</strong></p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 text-center" data-aos="zoom-in" data-aos-delay="300">
+                <div class="love-container">
+                    <div style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--pink-soft)); max-width: 40px;"></div>
+                    <svg width="clamp(2rem, 4vw, 3rem)" height="clamp(2rem, 4vw, 3rem)" viewBox="0 0 24 24" fill="var(--pink)" stroke="var(--pink)" stroke-width="0.5" style="animation: lovePulse 1.5s ease-in-out infinite;">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <div style="flex: 1; height: 1px; background: linear-gradient(270deg, transparent, var(--pink-soft)); max-width: 40px;"></div>
+                </div>
+                <div style="font-size: 1.2rem; color: var(--pink-soft); opacity: 0.5; margin-top: 0.2rem;">✿</div>
+            </div>
+            <div class="col-12 col-lg-5 text-center text-lg-start" data-aos="fade-left" data-aos-delay="200">
+                <div class="couple-card" style="padding: 1.5rem;">
+                    <div class="couple-photo-wrapper text-center position-relative d-inline-block">
+                        <div class="photo-ring">
+                          <img class="couple-photo" src="aset/wanita.jpg" alt="Foto Wanita" style="  width: 100%;  height: 100%;  border-radius: 50%;  object-fit: cover;">
+                        </div>
+                        <div class="ring-line"></div>
+                    </div>
+                    <h2 class="script mt-4 mb-2" style="font-size: clamp(2rem, 4vw, 2.8rem); color: var(--pink-deep);">Devi</h2>
+                    <hr class="my-2" style="width: 60px; border: 1px solid var(--pink); opacity: 0.5;">
+                    <h3 class="fw-bold" style="font-family: var(--font-display); font-size: clamp(1rem, 1.8vw, 1.3rem); color: var(--pink);">Devi Laili Hidayati</h3>
+                    <p class="lh-base mt-2" style="font-size: clamp(0.75rem, 1.2vw, 0.9rem); color: var(--ink); opacity: 0.8;">Putri kedua Bapak <strong style="color: var(--pink-deep);">Senan Heriyanto</strong> &amp; <br> Ibu <strong style="color: var(--pink-deep);">Mariyani</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 px-3" style="background: var(--ivory); position: relative;">
+    <div class="container-fluid">
+        <div class="jadwal rounded-5 text-light d-flex mt-3 mx-auto justify-content-between align-items-center position-relative overflow-hidden" data-aos="fade-up">
+            <div class="tutup w-100 h-100 rounded-5"></div>
+            <div class="left d-flex position-relative align-items-center justify-content-center p-5" data-aos="fade-right" data-aos-delay="200">
+                <div class="text-center">
+                    <img class="cincin mb-3" src="aset/akad.jpg" alt="Cincin">
+                    <h1 class="akad fs-1">Akad Nikah</h1>
+                    <hr class="garis">
+                    <h3 class="jum">Jum'at, 16 Oktober 2026</h3>
+                    <h3 class="jum">09.00 WIB</h3>
+                    <hr class="garis">
+                    <h3 class="tempat my-3 mx-auto">Rumah Mempelai Wanita</h3>
+                    <hr class="garis">
+                    <h5 class="alamat my-3 mx-auto fw-light fs-6">Dsn Birampak Desa Jenangger Kecamatan Batang-batang Kabupaten Sumenep</h5>
+                    <div class="peta">
+                        <a class="bg-light fw-bold d-inline-block rounded-5 p-3 mt-3" href="https://maps.app.goo.gl/D734D49Cr6WJZg118">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Menuju Lokasi
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="line bg-light rounded-3"></div>
+            <div class="right d-flex position-relative align-items-center justify-content-center p-5" data-aos="fade-left" data-aos-delay="200">
+                <div style="text-align: center;">
+                    <img class="cincin2 mb-3" src="aset/resepsi.jpg" alt="Cincin">
+                    <h1 class="akad2 fs-1">Resepsi</h1>
+                    <hr class="garis">
+                    <h3 class="jum2">Ahad, 25 Oktober 2026</h3>
+                    <h3 class="jum2">19.00 WIB</h3>
+                    <hr class="garis">
+                    <h3 class="tempat2 my-3 mx-auto">Rumah Mempelai Pria</h3>
+                    <hr class="garis">
+                    <h5 class="alamat2 my-3 mx-auto fw-light fs-6">Dsn Gantongan Desa Bettet Kecamatan Pamekasan Kabupaten Pamekasan</h5>
+                    <div class="peta2">
+                        <a class="bg-light fw-bold d-inline-block rounded-5 p-3 mt-3" href="https://maps.app.goo.gl/j1M4Z2SSi9tJmFpX9?g_st=aw">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Menuju Lokasi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery-confirm gap-5 p-5 d-flex justify-content-evenly flex-wrap h-auto">
+    <div class="gallery overflow-hidden">
+        <!-- <h1 class="photo mb-3">GALLERY PHOTOS</h1> -->
+        <div class="container rounded-5">
+        </div>
+    </div>
+    <div class="confirm mt-5 p-5 mx-auto rounded-3">
+        <h1 class="photo mb-3 text-center">KONFIRMASI KEHADIRAN</h1>
+        <p class="confirm-subtitle text-center mb-3">Merupakan suatu kehormatan bagi kami jika Andaberkenan hadir di hari bahagia kami.</p>
+        <form id="rsvpForm">
+            <div class="form-group">
+                <label class="mb-2 fw-bold d-block" for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+                <label class="mb-2 fw-bold d-block" for="kehadiran">Konfirmasi Kehadiran</label>
+                <select id="kehadiran" name="kehadiran" required>
+                    <option value="" disabled selected>--Pilih--</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="mb-2 fw-bold d-block" for="jumlah">Jumlah Tamu</label>
+                <input type="number" id="jumlah" name="jumlah" placeholder="Jika tidak hadir ketik 0" required>
+            </div>
+            <div class="form-group">
+                <label class="mb-2 fw-bold d-block" for="ucapan">Ucapan & Doa</label>
+                <textarea id="ucapan" name="ucapan" rows="4" placeholder="Tuliskan ucapan dan doa terbaik untuk kedua mempelai..."></textarea>
+            </div>
+            <button type="submit" class="btn-rsvp w-100 p-3 rounded-5 text-light fw-bold">
+                Kirim Konfirmasi
+            </button>
+        </form>
+    </div>
+</section>
+
+<section class="hadiah text-center">
+    <div class="tutup2 w-100 h-100 p-5">
+        <p class="eyebrow on-dark reveal fw-bold text-uppercase">Tanda Kasih</p>
+        <h2 class="reveal" style="font-family:var(--font-display); font-style:italic; font-size:2rem; color:var(--broken-white);">Wedding Gift</h2>
+        <p class="reveal mx-auto" style="max-width:520px; font-size:.9rem; color:var(--broken-white); margin-top:.6rem;">
+          Kehadiran Anda adalah hadiah terindah bagi kami. Namun jika ingin memberi tanda kasih, kami sediakan pilihan berikut dengan penuh syukur.
+        </p>
+        <div class="row g-3 justify-content-center mt-4">
+            <div class="col-10 col-md-4">
+                <div class="gift-card reveal h-100 p-4">
+                    <div class="gift-bank fw-bold fs-4">Bank Syariah Indonesia (BSI)</div>
+                    <div class="gift-num text-light fs-5" id="acc-mdr">7240554218</div>
+                    <div class="gift-owner">a.n. Devi Laili Hidayati</div>
+                    <button class="btn btn-copy rounded-4 text-uppercase bg-none" data-copy="acc-mdr">Salin Nomor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+<section class="section-pad closing position-relative d-flex justify-content-center align-items-center p-5 text-center">
+    <div class="container rounded-4 shadow-lg bg-light p-5 shadow" data-aos="fade-up">
+        <div class="corner-vine corner-tl"></div>
+        <div class="corner-vine corner-br"></div>
+        <p class="eyebrow on-dark text-uppercase fw-bold" data-aos="fade-up" data-aos-delay="100">Kami yang berbahagia <br> keluarga besar</p>
+        <h2 class="closing-names" data-aos="fade-up" data-aos-delay="200">Agus &amp; Devi</h2>
+        <div class="divider-flourish w-50 mt-3 mx-auto d-block" data-aos="zoom-in" data-aos-delay="300"></div>
+        <p class="mx-auto" style="max-width:520px; font-size:.9rem; color:var(--pink)" data-aos="fade-up" data-aos-delay="400">
+            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir &amp; memberikan doa restu kepada kedua mempelai. Atas kehadirannya kami ucapkan terima kasih.<br> <strong>Wassalamualaikum Warahmatullahi Wabarakatuh</strong>
+        </p>
+        <p class="footer-credit mt-5" data-aos="fade-up" data-aos-delay="500">&copy;2026 - Created by <b>ZhrCoderss</b>. All Rights Reserved.</p>
+    </div>
+</section>
+</div>
+
+<button id="music-toggle" aria-label="Putar musik">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+    const WEDDING_DATE = "2026-10-25T19:00:00";
+    const MAPS_AKAD = "https://maps.google.com/?q=Jakarta+Selatan";
+    const MAPS_RESEPSI = "https://maps.google.com/?q=Jakarta+Selatan";
+
+    (function setGuestName() {
+        const params = new URLSearchParams(window.location.search);
+        const to = params.get("to");
+        
+        if (to) {
+            document.getElementById("guest-name").textContent = to;
+        }
+    })();
+
+    (
+        function petals(){  
+            const holder = document.getElementById("petal-holder");
+            const symbols = ["❁","✿"];
+            for(let i=0;i<15;i++){
+              const p = document.createElement("span");
+              p.className = "float-petal";
+              p.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+              p.style.left = Math.random()*100 + "%";
+              p.style.fontSize = (1 + Math.random()*1.1) + "rem";
+              p.style.animationDuration = (7 + Math.random()*8) + "s";
+              p.style.animationDelay = (Math.random()*6) + "s";
+              holder.appendChild(p);
+            }
+        }
+    )();
+
+    const coverEl = document.getElementById("cover");
+    const mainEl = document.getElementById("main-content");
+    const music = document.getElementById("bg-music");
+    const musicBtn = document.getElementById("music-toggle");
+
+    document.getElementById("open-invitation").addEventListener("click", () => {
+        coverEl.classList.add("hide");
+        mainEl.style.visibility = "visible";
+        document.body.style.overflow = "auto";
+        if(music.currentSrc || music.src){
+            music.volume = 0.5;
+            music.play().then(()=> musicBtn.classList.add("spin")).catch(()=>{});
+        }
+        document.querySelectorAll('.reveal').forEach(el => {
+            el.classList.add('in');
+        });
+    });
+    document.body.style.overflow = "hidden";
+    musicBtn.addEventListener("click", () => {
+      if(music.paused){
+        music.play().then(()=> musicBtn.classList.add("spin")).catch(()=>{
+          alert("Tambahkan sumber musik pada tag <audio id=\"bg-music\"> untuk mengaktifkan fitur ini.");
+        });
+      } else {
+        music.pause();
+        musicBtn.classList.remove("spin");
+      }
+    });
+
+    document.querySelectorAll(".btn-copy").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const target = document.getElementById(btn.dataset.copy);
+        navigator.clipboard.writeText(target.textContent.replace(/\s/g,"")).then(()=>{
+          const original = btn.textContent;
+          btn.textContent = "Tersalin!";
+          btn.classList.add("copied");
+          setTimeout(()=>{ btn.textContent = original; btn.classList.remove("copied"); }, 1800);
+        });
+      });
+    });
+
+    function startCountdown(){
+        const target = new Date(WEDDING_DATE).getTime();
+        function tick(){
+            const now = Date.now();
+            let diff = target - now;
+            if(diff < 0) diff = 0;
+            const d = Math.floor(diff/86400000);
+            const h = Math.floor((diff%86400000)/3600000);
+            const m = Math.floor((diff%3600000)/60000);
+            const s = Math.floor((diff%60000)/1000);
+            document.querySelectorAll('[data-cd="days"],[data-cd2="days"]').forEach(el=>el.textContent=String(d).padStart(2,"0"));
+            document.querySelectorAll('[data-cd="hours"],[data-cd2="hours"]').forEach(el=>el.textContent=String(h).padStart(2,"0"));
+            document.querySelectorAll('[data-cd="mins"],[data-cd2="mins"]').forEach(el=>el.textContent=String(m).padStart(2,"0"));
+            document.querySelectorAll('[data-cd="secs"],[data-cd2="secs"]').forEach(el=>el.textContent=String(s).padStart(2,"0"));
+        }
+        tick();
+        setInterval(tick, 1000);
+    }
+    startCountdown();
+    const rsvpForm = document.getElementById("rsvpForm");
+    rsvpForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const nama = document.getElementById("nama").value.trim();
+        const kehadiran = document.getElementById("kehadiran").value;
+        const jumlah = document.getElementById("jumlah").value;
+        const ucapan = document.getElementById("ucapan").value.trim();
+        const nomorWhatsApp = "6285736618157";
+        const jumlahTamu =
+            kehadiran === "Hadir" ? jumlah + " orang" : "0 orang";
+        const pesan = `
+    KONFIRMASI KEHADIRAN
+    The Wedding of Devi & Agus
+
+    Nama: ${nama}
+    Status: ${kehadiran}
+    Jumlah tamu: ${jumlahTamu}
+    Ucapan & doa: ${ucapan || "-"}
+
+    Dikirim melalui undangan digital.
+        `.trim();
+
+        const url = "https://wa.me/" + nomorWhatsApp + "?text=" + encodeURIComponent(pesan);
+        window.open(url, "_blank");
+    });
+</script>
+</body>
+</html>
